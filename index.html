@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUALITYGUARD AI - Live Scanner</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="p-6">
+<div class="flex justify-between items-center border-b border-gray-800 pb-6">
+<div>
+<h1 class="text-2xl font-black">QUALITYGUARD AI</h1>
+<p class="text-[11px] tracking-widest text-gray-500">DETECT • PRIORITIZE • EXPLAIN • FIX</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-gray-400">PROJECT HEALTH</p>
+<p id="projectHealth" class="text-3xl font-black text-yellow-400">72/100</p>
+</div>
+</div>
+
+<div class="mt-8 bg-[#151E32] border-2 border-dashed border-cyan-500/40 p-10 rounded-2xl text-center">
+<h2 class="text-xl font-bold">Upload Your Project</h2>
+<p class="text-sm text-gray-400 mt-2">AI will scan and give file name + quality %</p>
+<input type="file" id="files" multiple class="hidden">
+<div class="mt-6">
+<button onclick="document.getElementById('files').click()" class="bg-white text-black px-8 py-3 rounded-full font-bold">SELECT CODE FILES</button>
+<button onclick="startAIScan()" class="bg-cyan-400 text-black px-8 py-3 rounded-full font-bold ml-3">SCAN BY AI -></button>
+</div>
+<p id="fileCount" class="text-xs text-cyan-400 mt-4">Default Demo: 72/100 - Select files to scan</p>
+</div>
+
+<div id="results" class="mt-8">
+<div class="grid md:grid-cols-4 gap-4">
+<div class="bg-[#151E32] border border-yellow-500/30 p-5 rounded-2xl"><p class="text-[10px] text-gray-400">OVERALL QUALITY</p><p id="overallScore" class="text-3xl font-black mt-2">72%</p></div>
+<div class="bg-[#151E32] border border-red-500/30 p-5 rounded-2xl"><p class="text-[10px] text-gray-400">FILES SCANNED</p><p id="totalFiles" class="text-3xl font-black mt-2">0</p></div>
+<div class="bg-[#151E32] border border-teal-500/30 p-5 rounded-2xl"><p class="text-[10px] text-gray-400">CRITICAL ISSUES</p><p id="criticalCount" class="text-3xl font-black mt-2 text-red-400">0</p></div>
+<div class="bg-[#151E32] border border-emerald-500/30 p-5 rounded-2xl"><p class="text-[10px] text-gray-400">RELEASE STATUS</p><p id="releaseStatus" class="text-xl font-black mt-2">NOT READY</p></div>
+</div>
+
+<div class="mt-6 bg-[#151E32] rounded-2xl overflow-hidden">
+<div class="p-5 flex justify-between"><h3 class="font-bold">AI Scan Results - File Name & Quality %</h3><button onclick="applyFixes()" class="bg-cyan-400 text-black px-4 py-1 rounded-full text-xs font-bold">FIX ALL -> 72 → 94</button></div>
+<table class="w-full text-sm">
+<thead class="bg-black/30 text-gray-400 text-[11px]"><tr><th class="p-4 text-left">#</th><th class="text-left">FILE NAME</th><th class="text-left">LINES</th><th class="text-left">ISSUES</th><th class="text-left">QUALITY %</th><th class="text-left">RISK</th></tr></thead>
+<tbody id="fileTable"></tbody>
+</table>
+</div>
+</div>
+
+<script src="js/scanner.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
