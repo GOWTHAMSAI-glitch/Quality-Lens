@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Code Scanner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <div class="ai-icon">
+            🤖
+        </div>
+
+        <h1>AI Code Scanner</h1>
+
+        <p>
+            Analyze your source code using AI
+        </p>
+
+    </header>
+
+
+    <section class="card">
+
+        <label>
+            Code Name
+        </label>
+
+        <input
+            id="codeName"
+            type="text"
+            placeholder="Example: Login System"
+        >
+
+
+        <label>
+            Programming Language
+        </label>
+
+        <select id="language">
+
+            <option>JavaScript</option>
+            <option>Python</option>
+            <option>Java</option>
+            <option>C</option>
+            <option>C++</option>
+            <option>PHP</option>
+            <option>TypeScript</option>
+            <option>Go</option>
+            <option>Rust</option>
+
+        </select>
+
+
+        <label>
+            Paste Your Code
+        </label>
+
+        <textarea
+            id="code"
+            placeholder="Paste your source code here..."
+        ></textarea>
+
+
+        <button
+            id="scanButton"
+            onclick="scanCode()"
+        >
+            🤖 AI SCAN CODE
+        </button>
+
+    </section>
+
+
+    <div
+        id="loading"
+        class="loading hidden"
+    >
+
+        <div class="spinner"></div>
+
+        <p>
+            AI is analyzing your code...
+        </p>
+
+    </div>
+
+
+    <section
+        id="result"
+        class="card hidden"
+    >
+
+        <h2>
+            📊 AI Analysis Result
+        </h2>
+
+
+        <div class="score-container">
+
+            <div
+                id="score"
+                class="score"
+            >
+                0%
+            </div>
+
+            <p>
+                AI Code Quality Score
+            </p>
+
+        </div>
+
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Code Name
+                    </th>
+
+                    <th>
+                        Language
+                    </th>
+
+                    <th>
+                        Working %
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="resultTable">
+
+            </tbody>
+
+        </table>
+
+
+        <div class="summary">
+
+            <h3>
+                📝 AI Summary
+            </h3>
+
+            <p id="summary"></p>
+
+        </div>
+
+
+        <div class="grid">
+
+            <div class="analysis-box">
+
+                <h3>
+                    ❌ Errors / Bugs
+                </h3>
+
+                <ul id="errors"></ul>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <h3>
+                    🔐 Security
+                </h3>
+
+                <ul id="securityIssues"></ul>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <h3>
+                    💡 Suggestions
+                </h3>
+
+                <ul id="suggestions"></ul>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <h3>
+                    ⭐ Strengths
+                </h3>
+
+                <ul id="strengths"></ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="tests">
+
+            <h3>
+                🧪 Recommended Tests
+            </h3>
+
+            <ul id="testsRecommended"></ul>
+
+        </div>
+
+    </section>
+
+
+    <div
+        id="error"
+        class="error hidden"
+    ></div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
